@@ -1,6 +1,3 @@
-// In script.js
-
-// Define character mappings for different styles
 const charMappings = {
     // Lowercase letters
     a: ["a", "4", "@", "á", "à", "â", "ä", "ã", "å", "ā", "α", "ⓐ", "ａ", "𝕒", "𝒶", "𝔞", "🅐", "ₐ", "ᵃ", "ǟ", "ǎ", "ȧ", "ä"],
@@ -77,9 +74,8 @@ const charMappings = {
     ",": [",", "،", "⸲", "‚", "ꓹ", "⸴"],
     " ": [" ", " ", "␣", "⍽", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "​"],
 
-
+    // Style
     cute: ["❤️", "💕", "😍", "💘", "💖", "😊", "😄", "🤗", "🙂", "😀"],
-
     evil: ["😈", "👿", "💀", "👹", "👺", "😏", "😎", "😈", "😼", "😏"]
 };
 
@@ -94,7 +90,7 @@ function randomizeText(text, style) {
     words = text.split(/(\s+)/);
     for (const word of words){
         if (/\s/.test(word)) {
-            result += word; // If it's whitespace, add it unchanged
+            result += word; 
         }
 
         processedword = '';
@@ -105,7 +101,7 @@ function randomizeText(text, style) {
             continue;
         }
     
-        // Check lowercase version
+
         const lowerChar = char.toLowerCase();
         if (charMappings[lowerChar]) {
             const variants = charMappings[lowerChar];
@@ -147,7 +143,7 @@ document.getElementById('randomizeBtn').addEventListener('click', function() {
     outputElement.textContent = randomizedText;
 });
 
-// Optional: Add style selector
+
 const styleSelector = document.createElement('select');
 const styles = ['evil', 'cute'];
 styles.forEach(style => {
@@ -156,5 +152,6 @@ styles.forEach(style => {
     option.textContent = style;
     styleSelector.appendChild(option);
 });
+
 
 document.body.insertBefore(styleSelector, document.getElementById('randomizeBtn'));
